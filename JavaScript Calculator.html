@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="CSS.css"> <!-- Link to External Style Sheet -->
+<title> Calculator </title>
+</head>
+	 
+<body>
+	<h1>
+		<p><input id="yourNumber" type="text" style="height: 45px; font-size: 25px; width: 320px"/></p>
+			<p>
+			<font color="black"; >Functions</font> 
+			<font color = "#EFFBEF">____________</font>
+			<button onclick="onclickback()" type="button" style="height: 50px; font-size: 20px; width: 50px">Del</button>
+			<button onclick="onclickClear()" type="button" style="height: 50px; font-size: 20px; width: 50px">CE</button>
+			</p>
+						
+			<p>
+			<button onclick="onclickNumber('&#8730 ')" type="button" style="height: 50px; font-size: 20px; width: 50px">&#8730 </button>	
+		    <button onclick="onclickNumber('^')" type="button" style="height: 50px; font-size: 20px; width: 50px">x<sup>y</sup></button>	
+			<button onclick="onclickNumber('tan')" type="button" style="height: 50px; font-size: 20px; width: 50px">tan </button>	
+			<button onclick="onclickNumber('sin')" type="button" style="height: 50px; font-size: 20px; width: 50px">sin </button>
+			<button onclick="onclickNumber('cos')" type="button" style="height: 50px; font-size: 20px; width: 50px">cos </button>
+			<button onclick="onclickNumber('^2')" type="button" style="height: 50px; font-size: 20px; width: 50px">x&sup2;</button>
+			</p>
+			
+			<p>
+			<button onclick="onclickMS()" type="button" style="height: 50px; font-size: 20px; width: 50px" text-align="right">MS</button>
+			<button onclick="onclickMC()" type="button" style="height: 50px; font-size: 20px; width: 50px">MC</button>    
+			<button onclick="onclickMR()" type="button" style="height: 50px; font-size: 20px; width: 50px">MR</button>
+			<button onclick="onclickMPlus()" type="button" style="height: 50px; font-size: 20px; width: 50px">M+</button>
+			<button onclick="positiveNegative()" type="button" style="height: 50px; font-size: 20px; width: 50px">+/-</button>
+			<button onclick="functionTotalOfNumbers()" type="button" style="height: 50px; font-size: 20px; width: 50px">=</button> <!-- must use this equal sign for functions -->
+			</p>  
+			
+			<p>
+			<font color="black">Basic</font> <!-- Header -->
+			</p>
+		
+			<font color = "#EFFBEF">_____</font>
+			<button onclick="onclickNumber('7')" type="button" style="height: 50px; font-size: 30px; width: 50px">7</button>
+			<button onclick="onclickNumber('8')" type="button" style="height: 50px; font-size: 30px; width: 50px">8</button>
+			<button onclick="onclickNumber('9')" type="button" style="height: 50px; font-size: 30px; width: 50px">9</button>
+			<button onclick="onclickNumber('+')" type="button" style="height: 50px; font-size: 30px; width: 50px">+</button>
+			</p>
+
+			<p>
+			<font color = "#EFFBEF">_____</font>
+			<button onclick="onclickNumber('4')" type="button" style="height: 50px; font-size: 30px; width: 50px">4</button>
+			<button onclick="onclickNumber('5')" type="button" style="height: 50px; font-size: 30px; width: 50px">5</button>
+			<button onclick="onclickNumber('6')" type="button" style="height: 50px; font-size: 30px; width: 50px">6</button>
+			<button onclick="onclickNumber('-')" type="button" style="height: 50px; font-size: 30px; width: 50px">-</button>
+			</p>
+
+			<p>
+			<font color = "#EFFBEF">_____</font>
+			<button onclick="onclickNumber('1')" type="button" style="height: 50px; font-size: 30px; width: 50px">1</button>
+			<button onclick="onclickNumber('2')" type="button" style="height: 50px; font-size: 30px; width: 50px">2</button>
+			<button onclick="onclickNumber('3')" type="button" style="height: 50px; font-size: 30px; width: 50px">3</button>
+			<button onclick="onclickNumber('*')" type="button" style="height: 50px; font-size: 30px; width: 50px">*</button>
+			</p>
+
+			<p>
+			<font color = "#EFFBEF">_____</font>
+			<button onclick="onclickNumber('.')" type="button" style="height: 50px; font-size: 30px; width: 50px">.</button> 
+			<button onclick="onclickNumber('0')" type="button" style="height: 50px; font-size: 30px; width: 50px">0</button>
+			<button onclick="totalValue()" type="button" style="height: 50px; font-size: 30px; width: 50px">=</button>			
+			<button onclick="onclickNumber('/')" type="button" style="height: 50px; font-size: 30px; width: 50px">/</button>
+			</p>
+			
+		 </h1>		 
+<script>
+
+var output = document.getElementById("yourNumber"); 
+var input = document.getElementById("yourNumber"); 
+input.disabled = true;
+var clearInput = false;
+		  
+function onclickClear()
+		 {
+			 clearInput = true;
+			 output = document.getElementById("yourNumber");
+			 input = document.getElementById("yourNumber");
+			 output.value = ""; 
+		 }
+			
+
+
+var position; // initializes variable which will locate position of operator
+var a; //initializes variable which will hold one value
+var b; // initializes variable which will hold second value
+var total; // ititializes variable that whose value is the answer
+var save; // ititializes variable that whose value is the answer
+var number1; // ititializes variable which holds the first number
+var number2; // ititializes variable which holds second number
+var numberLength; // ititializes variable that who will hold the number's length
+
+
+
+function onclickNumber(x) 
+		    {
+		   
+				if(clearInput)
+				{
+					input.value = "";
+					clearInput = false;
+				}
+				
+				input.value += x; 
+
+				if(x == "+" || x == "-" || x == "*" || x == "/" ) // if x equals any operator
+				{ 
+					output = document.getElementById("yourNumber");
+					input = document.getElementById("yourNumber");
+					number1 = output.value;
+					output.value = ""; // will show clear box	
+			    }
+		    }
+
+function totalValue(x)
+			{
+				if (number1.indexOf("+") >= 0) // checks if + was used
+				{
+				input = document.getElementById("yourNumber").value; 
+				number2 = output.value;
+				numberLength = number1.length;
+				number1 = number1.substr(0,numberLength - 1);
+				number1 = parseFloat(number1); // converts first value into number
+				number2 = parseFloat(number2); // converts second value into number
+				total = number1 + number2; // performs addition
+				output.value= total;
+			}
+		   
+			else if (number1.indexOf("-") >=0)
+			{
+				 input = document.getElementById("yourNumber").value; 
+				 number2 = output.value;
+				 numberLength = number1.length;
+				 number1 = number1.substr(0,numberLength - 1);
+				 number1 = parseFloat(number1);// converts first value into number
+				 number2 = parseFloat(number2);// converts second value into number
+				 total = number1 - number2;// performs subtraction
+				 output.value= total;
+			}
+			   
+			   else if (number1.indexOf("*") >=0)
+			{
+				input = document.getElementById("yourNumber").value;
+				number2 = output.value;
+				number1 = parseFloat(number1);// converts first value into number
+				number2 = parseFloat(number2);// converts second value into number
+				total = number1 * number2;// performs multiplication
+				output.value= total;
+			}
+				
+			else if (number1.indexOf("/") >=0)
+			{
+				input = document.getElementById("yourNumber").value; 
+				number2 = output.value;
+				number1 = parseFloat(number1);// converts first value into number
+				number2 = parseFloat(number2);// converts second value into number
+				total = number1 / number2;// performs division
+				output.value= total;
+			}
+			   
+
+		}
+
+function functionTotalOfNumbers(x) // functions input
+		    {
+			   var position; // initializations
+			   var a;
+			   var b;
+			   var total;
+			   input = document.getElementById("yourNumber").value;
+			   
+				if (input.indexOf(" ") >= 0) // square root function 
+				{ 
+					 position = input.indexOf(' ') // searches for clear space
+					 b = input.substring(position + 1) // assigns value after square root to a var
+					 total = Math.sqrt(b); // calculates square root
+					 output.value = total; 
+				}
+				
+				else if (input.indexOf("^") >= 0) // to the power function
+				{ 
+					 position = input.indexOf('^')
+					 a = input.substring(0, position) 
+					 b = input.substring(position + 1) 
+					 total = Math.pow(a,b); 
+					 output.value = total; 
+				}
+				
+				else if (input.indexOf("tan") >= 0) // tan function
+				{ 
+					 position = input.indexOf('n') 
+					 b = input.substring(position + 1) //saves the value which is after tan
+					 total = Math.tan(b); // calculates tan
+					 output.value = total; 
+				}
+				
+				else if (input.indexOf("sin") >= 0) // sin function
+				{ 
+					 position = input.indexOf('n')
+					 b = input.substring(position + 1) // saves the value that is after sin
+					 total = Math.sin(b); // calculates sin
+					 output.value = total; 
+				}
+				
+				else if (input.indexOf("cos") >= 0) // cos function
+				{ 
+					 position = input.indexOf('s')
+					 b = input.substring(position + 1) // saves the value that is after cos
+					 total = Math.cos(b); // calculates sin
+					 output.value = total; 
+				}
+		    }
+			  
+			function positiveNegative() 
+			{
+				output.value = output.value * -1; // converts value to negative or positive
+			}
+				  
+			function onclickback() // delete key
+			{
+				var input = document.getElementById("yourNumber").value; // assigns inputted value to variable
+				var output_ = input.substr(0, input.length - 1); // another new variable is created to find the length of the old variable and subtract 1 place value
+				output.value = output_
+			}
+
+			function onclickMS() // save function
+			{ 
+					save = (input.value); // saves inputted value and assigns it to variable
+			}
+			   
+			function onclickMR() // paste function
+			{
+					input.value += save; // concatenates the 2 values
+			}
+
+			function onclickMC() 
+			{
+					save=""; // clears the memory function
+			}
+
+			function onclickMPlus()
+			{
+				onclickNumber('+');
+				output.value = save;
+				totalValue(); // evaluates the saved value and the exisiting value
+			} 	
+			
+</script>
+	<p id="result"></p>
+</body>
+</html> 
