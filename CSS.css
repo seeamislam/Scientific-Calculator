@@ -1,0 +1,19 @@
+body 
+{
+	background-image: url('http://wallpapercave.com/wp/IvNXSvy.jpg');
+}
+
+h1
+{
+	background-color: #EFFBEF;
+    color: #58FA82;
+	left: 500px;
+	top: 0px;
+    position: absolute;
+	border-style: ridge;
+	border-width: 10px; 
+	font-size: 20px;
+	z-index: 1; /* used to determine which elements will overlap */
+}
+
+
