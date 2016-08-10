@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<body bgcolor="WHITE">
+	
+		<p><input id="yourNumber" type="text" /></p>
+		
+		<p><button onclick="onclickNumber('1')" type="button">1</button>
+
+		<button onclick="onclickNumber('2')" type="button">2</button> 
+		
+		<button onclick="onclickNumber('3')" type="button">3</button>
+		
+		<button onclick="onclickNumber('+')" type="button">+</button></p> <!--- Add -->
+		
+		<button onclick="onclickNumber('4')" type="button">4</button>
+		
+		<button onclick="onclickNumber('5')" type="button">5</button>
+		
+		<button onclick="onclickNumber('6')" type="button">6</button>
+		
+		<p><button onclick="onclickNumber('7')" type="button">7</button>
+		
+		<button onclick="onclickNumber('8')" type="button">8</button>
+		
+		<button onclick="onclickNumber('9')" type="button">9</button>
+		
+		<button onclick="onclickNumber('0')" type="button">0</button>
+		
+		<button onclick="equals()" type="button">=</button>
+		
+		<p id="result"></p>
+		<script>
+		
+			// Use a variable to represent object...making program more readable.
+ 
+			var input = document.getElementById("yourNumber"); 
+
+			function onclickNumber(x) 
+			{
+					input.value = input.value + x
+			}
+			
+			function onclickNumber(x) 
+			{
+					input.value = input.value + x
+			}
+			
+			function equals()
+			{
+			output.innerHTML = input.value
+
+			}
+			
+		</script>
+	</body>
+</html>
